@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import Story from '../../components/Story/Story';
 import { fetchData } from '../redux/actions/index';
+import Article from '../components/Article/Article';
 
 class Articles extends Component {
   componentDidMount() {
@@ -11,22 +11,22 @@ class Articles extends Component {
   }
 
   render() {
-    // const { articles } = this.props;
+    const { articles } = this.props;
 
     return (
       <div>
-        {/* {
-          articles.map(story => (
-            <Story key={story.id} story={story} />
+        {
+          articles.map(article => (
+            <Article key={article.id} article={article} />
           ))
-        } */}
+        }
       </div>
     );
   }
 }
 Articles.propTypes = {
   // filter: PropTypes.string.isRequired,
-//   articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+  articles: PropTypes.arrayOf(PropTypes.object).isRequired,
   fetchData: PropTypes.func.isRequired,
 };
 
